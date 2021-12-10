@@ -8,7 +8,7 @@ module.exports = new class login {
     }
 
     async checkLogin(req, res) { // POST
-        let {username,password} =req.body
+        let {username,password} =req.body;
         let checkAdmin = await adminUsersModel.findOne({username}).exec();
         if (!checkAdmin) return res.send({
             status:402,

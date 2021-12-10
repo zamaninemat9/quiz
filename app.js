@@ -20,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //require env
 require('dotenv').config();
+global.err=require('./err');
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,

@@ -1,5 +1,5 @@
-const adminUsersModel = require('./../model/adminUsers');
-const adminAuthModel = require('./../model/adminAuth');
+const adminUsersModel = require('./../../model/adminUsers');
+const adminAuthModel = require('./../../model/adminAuth');
 const encHlp=require('./../../helpers/encrypt_helper');
 const rndHlp=require('./../../helpers/rand_helper');
 module.exports = new class login {

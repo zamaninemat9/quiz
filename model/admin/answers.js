@@ -6,6 +6,6 @@ let answers_schema = new Schema({
     answer3: {type: String},
     answer4: {type: String},
     trueAnswer: {type: String},
-    questionId: {type: String},
+    questionId: {type: Schema.Types.ObjectId},
 });
 module.exports = mongoose.model('answers', answers_schema);

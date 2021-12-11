@@ -1,4 +1,4 @@
-const auth_model = require('./../model/user/user_auth');
+const auth_model = require('./../model/adminAuth');
 const ck = (req) => {
     return new Promise(async (resolve, reject) => {
         let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -8,7 +8,7 @@ const ck = (req) => {
         if (!ip || !uuid || !agent) return reject(false);
         let d = await auth_model.findOne({ip, agent, uuid}).exec();
         if (!d) return reject(false);
-        resolve(d.nt_code);
+        resolve(d.username);
     });
 };
 module.exports = ck;

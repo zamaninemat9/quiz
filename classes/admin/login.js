@@ -6,7 +6,6 @@ module.exports = new class login {
     renderPage(req, res) { // GET
         res.render('admin/login')
     }
-
     async checkLogin(req, res) { // POST
         let {username,password} =req.body;
         let checkAdmin = await adminUsersModel.findOne({username}).exec();

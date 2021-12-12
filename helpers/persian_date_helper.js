@@ -1,22 +1,25 @@
 const jalaali = require('jalaali-js');
-let now=new Date();
-let now_year=now.getFullYear();
-let now_month=now.getMonth()+1;
-let now_day=now.getDate();
-let jalali_date=jalaali.toJalaali(now_year,now_month,now_day);
+let nowTime=()=>{
+    let now=new Date();
+    let now_year=now.getFullYear();
+    let now_month=now.getMonth()+1;
+    let now_day=now.getDate();
+    let jalali_date=jalaali.toJalaali(now_year,now_month,now_day);
+    return jalali_date;
+}
 const get_year_now=()=>{
-    return jalali_date.jy;
+    return nowTime().jy;
 };
 const get_month_now=()=>{
-    return jalali_date.jm;
+    return nowTime().jm;
 };
 const get_day_now=()=>{
-    return jalali_date.jd;
+    return nowTime().jd;
 };
 const get_full_date_now=(slash=false)=>{
     let between='-';
     if(slash) between='/';
-    return jalali_date.jy+between+jalali_date.jm+between+jalali_date.jd;
+    return nowTime().jy+between+nowTime().jm+between+nowTime().jd;
 };
 const get_default_date=(date,slash=false)=>{
     let between='-';
@@ -30,11 +33,19 @@ const get_default_date=(date,slash=false)=>{
     return d_j_date.jy+between+d_j_date.jm+between+d_j_date.jd;
 };
 const get_time=()=>{
- return now.getHours()+' : '+now.getMinutes()+' : '+now.getSeconds()
+    return new Date().getSeconds()+' : '+new Date().getMinutes()+' : '+new Date().getHours()
 };
+const def_get_time=(Dates)=>{
+    return new Date(Dates).getSeconds()+' : '+new Date(Dates).getMinutes()+' : '+new Date(Dates).getHours()
+};
+const getTimeArray=()=>{
+    return [get_year_now(),get_month_now(),get_day_now()]
+};
+module.exports.getTimeArray=getTimeArray;
 module.exports.get_time=get_time;
 module.exports.get_day=get_day_now;
 module.exports.get_month=get_month_now;
 module.exports.get_year=get_year_now;
 module.exports.get_full_date_now=get_full_date_now;
 module.exports.get_def_date=get_default_date;
+module.exports.def_get_time=def_get_time;

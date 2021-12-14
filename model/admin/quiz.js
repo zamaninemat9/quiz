@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let quiz_schema = new Schema({
     title: {type: String},
-    created: {type: new Date()},
-    updated: {type: new Date()},
-    expireDate: {type: new Date()},
-    startDate: {type: new Date()},
+    created: {type: Date},
+    updated: {type: Date},
+    expireDate: {type: Date},
+    startDate: {type: Date},
     description: {type: String},
     catId: {type: Schema.Types.ObjectId},
 });

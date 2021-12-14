@@ -9,9 +9,10 @@ let answersSchema=new Schema({
 });
 let questions_schema = new Schema({
     quizId: {type: Schema.Types.ObjectId},
-    answerCount: {type: Number},
+    question:{type:String},
+    answerCount: {type: Number},// where type === تستی
     type: {type: Number},//1=> test ; 2=> tashrihi ; 3 => upload
-    answer: answersSchema, // where type != تستی
+    answer: answersSchema, // where type === تستی
     created: {type: new Date()},
     updated: {type: new Date()},
 });
